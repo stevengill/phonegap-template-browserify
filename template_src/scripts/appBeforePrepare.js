@@ -1,10 +1,9 @@
-var browserify = require('browserify');
 var fs = require('fs');
 
 module.exports = function(context) {
     //grab Q from cordova modules
     var Q = context.requireCordovaModule('q');
-    console.log(context);
+    var browserify = context.requireCordovaModule('browserify');
     var deferral = new Q.defer();
 	var outFile = fs.createWriteStream('www/js/bundle.js');
     browserify("src/app.js")
